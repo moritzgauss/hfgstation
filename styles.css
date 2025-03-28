@@ -15,13 +15,11 @@ body {
     top: 0;
     left: 100%;
     width: 100%;
-    background: red;
-    color: white;
+    color: red;
     font-size: 36px;
     padding: 15px;
-    letter-spacing: 5px;
     font-weight: bold;
-    z-index: 1000;
+    z-index: 1;
     white-space: nowrap;
     animation: none;
 }
