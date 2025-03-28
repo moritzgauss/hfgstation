@@ -50,18 +50,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.play-button::before {
-    content: '▶';
-    font-size: 48px;
-    color: white;
-    display: block;
-    text-align: center;
-}
-
-.playing .play-button::before {
-    content: '❚❚';
-}
-
 
 .toggle-header {
     font-size: 36px;
