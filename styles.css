@@ -1,20 +1,17 @@
-/* Allgemeine Einstellungen */
 body {
     margin: 0;
-    padding-top: 66px; /* Space for banner */
+    padding-top: 66px;
     background: #fff;
     color: #000;
     font-family: 'DM Sans', sans-serif;
     text-align: center;
-    min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
-/* LIVE Banner - größer und auffälliger */
 .live-banner {
-    color: black;
+    color: red;
     font-size: 36px;
     padding: 15px;
     position: fixed;
@@ -40,7 +37,6 @@ body {
     100% { transform: translateX(-100%); }
 }
 
-/* Play Button - verbessert */
 .player-container {
     display: flex;
     justify-content: center;
@@ -68,7 +64,6 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
 
-/* Toggle Header */
 .toggle-header {
     font-size: 36px;
     margin-bottom: 40px;
@@ -106,11 +101,10 @@ body {
     }
 }
 
-/* Footer */
+
 .footer {
     margin-top: auto;
     padding: 10px;
-    width: 100%;
     font-size: 14px;
     font-family: 'DM Sans', sans-serif;
     text-align: center;
