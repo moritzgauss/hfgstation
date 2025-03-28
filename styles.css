@@ -7,25 +7,65 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
-
 .live-banner {
-    position: relative;
+    position: fixed;
     top: 0;
-    left: 100%;
     width: 100%;
-    color: red;
-    font-size: 36px;
-    padding: 15px;
-    font-weight: bold;
-    z-index: 1;
-    white-space: nowrap;
-    animation: none;
+    height: 80px;
+    overflow: hidden;
+    display: none;
 }
 
-@keyframes scrollBanner {
-    0% { left: 100%; }
-    100% { left: -100%; }
+.live-banner.show {
+    display: block;
+}
+
+.marquee {
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-text {
+    height: 80px;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.live-banner.show .marquee {
+    opacity: 1;
+}
+
+.banner-text {
+    fill: red;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
+    .marquee-text {
+        width: 260px; /* Smaller for mobile */
+    }
+    
+    .marquee-text text {
+        transform: scaleX(0.8); /* Compress text on mobile */
+    }
 }
 
 .player-container {
@@ -48,6 +88,24 @@ body {
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
+}
+
+.play-button::before {
+    content: '▶';
+    font-size: 32px;
+    color: white;
+    margin-left: 4px; 
+}
+
+.play-button.playing::before {
+    content: '❚❚';
+    margin-left: 0;
+    letter-spacing: -2px;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
 
 
@@ -73,9 +131,6 @@ body {
 
 .show {
     position: relative;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ccc;
     aspect-ratio: 1;
     margin: 0;
 }
@@ -107,6 +162,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+
 @media (prefers-color-scheme: dark) {
     body {
         background: #000;
@@ -119,11 +175,7 @@ body::-webkit-scrollbar-thumb {
         background: #444;
         color: #fff;
     }
-    .footer {
-        background: black;
-        color: white;
-    }
     .live-banner {
-        color: #ff0000;
+        background: black;
     }
 }
