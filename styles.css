@@ -1,0 +1,148 @@
+/* Allgemeine Einstellungen */
+body {
+    margin: 0;
+    padding-top: 66px; /* Space for banner */
+    background: #fff;
+    color: #000;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LIVE Banner - größer und auffälliger */
+.live-banner {
+    color: black;
+    font-size: 36px;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    letter-spacing: 5px;
+    transform: scaleX(0.5);
+}
+
+.live-text {
+    color: red;
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+
+@keyframes scrollBanner {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Play Button - verbessert */
+.player-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-shrink: 0;
+}
+
+.play-button {
+    width: 120px;
+    height: 120px;
+    background: #666;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+    color: white;
+    letter-spacing: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.play-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* Toggle Header */
+.toggle-header {
+    font-size: 36px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.shows-container {
+    display: none;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.shows-container.show {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.show {
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ccc;
+    aspect-ratio: 1;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .shows-container.show {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #000;
+        color: #fff;
+    }
+    .title-text {
+        fill: #fff !important;
+    }
+    .play-button {
+        background: #444;
+        color: #fff;
+    }
+    .footer {
+        background: black;
+        color: white;
+    }
+    .live-banner {
+        color: #ff0000;
+    }
+}
