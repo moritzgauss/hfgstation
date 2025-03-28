@@ -11,30 +11,24 @@ body {
 }
 
 .live-banner {
-    color: red;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    background: red;
+    color: white;
     font-size: 36px;
     padding: 15px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
     letter-spacing: 5px;
-    transform: scaleX(0.5);
-}
-
-.live-text {
-    color: red;
     font-weight: bold;
-}
-
-.hide {
-    display: none;
+    z-index: 1000;
+    white-space: nowrap;
+    animation: none;
 }
 
 @keyframes scrollBanner {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% { left: 100%; }
+    100% { left: -100%; }
 }
 
 .player-container {
@@ -42,7 +36,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 50vh;
-    flex-shrink: 0;
 }
 
 .play-button {
@@ -52,17 +45,26 @@ body {
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    font-size: 32px;
-    color: white;
-    letter-spacing: 4px;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
 
-.play-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+.play-button::before {
+    content: '▶';
+    font-size: 48px;
+    color: white;
+    display: block;
+    text-align: center;
 }
+
+.playing .play-button::before {
+    content: '❚❚';
+}
+
 
 .toggle-header {
     font-size: 36px;
