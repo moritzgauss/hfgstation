@@ -39,13 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatContainer = document.getElementById("chatContainer");
     const chatTriggerText = document.getElementById("chatTriggerText");
 
+    let isChatOpen = false;
+
     chatTrigger.addEventListener("click", () => {
-        const isChatOpen = chatContainer.style.display === "block";
-
-        // Toggle chat visibility
-        chatContainer.style.display = isChatOpen ? "none" : "block";
-
-        // Change button text
-        chatTriggerText.textContent = isChatOpen ? "CHAT" : "CLOSE";
+        isChatOpen = !isChatOpen;
+        
+        if (isChatOpen) {
+            chatContainer.style.display = "block";
+            chatTriggerText.textContent = "CLOSE";
+        } else {
+            chatContainer.style.display = "none";
+            chatTriggerText.textContent = "CHAT";
+        }
     });
+
+    // Chat beim Laden sicher verstecken
+    chatContainer.style.display = "none";
 });
