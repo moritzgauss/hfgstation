@@ -36,19 +36,33 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Vergangene Sendungen ▼";
     });
 
-    // 💬 Chat Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const chatTrigger = document.getElementById("chatTrigger");
+    const chatContainer = document.getElementById("chatContainer");
+
+    // Create close button and insert it above chatContainer
+    const chatCloseButton = document.createElement("button");
+    chatCloseButton.textContent = "X";
+    chatCloseButton.classList.add("chat-close-button");
+    chatContainer.parentNode.insertBefore(chatCloseButton, chatContainer);
+
+    let isChatOpen = false;
+
+    // Toggle chat visibility
     chatTrigger.addEventListener("click", () => {
         isChatOpen = !isChatOpen;
-        
-        if (isChatOpen) {
-            chatContainer.style.display = "block";
-            chatTriggerText.textContent = "CLOSE";
-        } else {
-            chatContainer.style.display = "none";
-            chatTriggerText.textContent = "CHAT";
-        }
+        chatContainer.classList.toggle("show", isChatOpen);
+        chatCloseButton.style.display = isChatOpen ? "block" : "none";
     });
 
-    // Chat beim Laden verstecken
-    chatContainer.style.display = "none";
+    // Close button to hide chat
+    chatCloseButton.addEventListener("click", () => {
+        isChatOpen = false;
+        chatContainer.classList.remove("show");
+        chatCloseButton.style.display = "none";
+    });
+
+    // Hide chat and close button initially
+    chatContainer.classList.remove("show");
+    chatCloseButton.style.display = "none";
 });
