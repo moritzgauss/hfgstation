@@ -77,12 +77,16 @@ body {
         transform: scaleX(0.8); 
     }
         .title {
+        width: 100%
         height: 140px
         margin-left: 20px; margin-right: 20px;
     }
     
-    .title-text {
-                transform: scaleX(1.8); /* Compress text on mobile */
+.title-text {
+    display: inline-block; /* Ensures transform respects the element's natural width */
+    transform: scaleX(1.8);
+    transform-origin: center;
+
 }
 }
 
