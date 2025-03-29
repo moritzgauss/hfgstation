@@ -35,8 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 document.addEventListener("DOMContentLoaded", () => {
-        const chatDiv = document.querySelector(".chat-container");
-        if (chatDiv) {
-            chatDiv.style.display = "none";
-        }
+    const chatTrigger = document.getElementById("chatTrigger");
+    const chatContainer = document.getElementById("chatContainer");
+    const chatTriggerText = document.getElementById("chatTriggerText");
+
+    chatTrigger.addEventListener("click", () => {
+        const isChatOpen = chatContainer.style.display === "block";
+
+        // Toggle chat visibility
+        chatContainer.style.display = isChatOpen ? "none" : "block";
+
+        // Change the text in the trigger
+        chatTriggerText.textContent = isChatOpen ? "CHAT" : "CLOSE";
     });
+});
