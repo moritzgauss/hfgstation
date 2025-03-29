@@ -131,7 +131,15 @@ body {
 }
 
 
+@font-face {
+    font-family: 'GreedWide';
+    src: url('https://raw.githubusercontent.com/moritzgauss/hfgstation/refs/heads/main/GreedWideTRIAL-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
 .toggle-header {
+    font-family: 'GreedWide', sans-serif;
     font-size: 36px;
     margin-bottom: 40px;
     border-radius: 10px;
