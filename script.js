@@ -31,4 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
             ? 'Vergangene Sendungen ▲' 
             : 'Vergangene Sendungen ▼';
     });
-});
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const chatDiv = document.querySelector(".chat");
+        if (chatDiv) {
+            chatDiv.style.display = "none";
+        }
+    });
