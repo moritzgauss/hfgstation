@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Toggle chat visibility
         chatContainer.style.display = isChatOpen ? "none" : "block";
 
-        // Change the text in the trigger
+        // Change button text
         chatTriggerText.textContent = isChatOpen ? "CHAT" : "CLOSE";
     });
 });
