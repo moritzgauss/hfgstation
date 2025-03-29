@@ -77,10 +77,11 @@ body {
         transform: scaleX(0.8); 
     }
         .title {
-        width: 100vw;
-        height: 140px;
-        margin-left: 20px; margin-right: 20px;
+        padding-left: 10px; padding-right: 10px;
     }
+            .title-text {
+                        transform: scaleX(1.2); 
+                }
 }
 
 .player-container {
