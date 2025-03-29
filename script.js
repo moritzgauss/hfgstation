@@ -41,18 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatClose = document.getElementById("chatClose");
     const chatContainer = document.getElementById("chatContainer");
 
-    let isChatOpen = false;
-
     // Open chat
     chatTrigger.addEventListener("click", () => {
-        isChatOpen = true;
         chatContainer.style.display = "block";
         chatClose.style.display = "block";
     });
 
     // Close chat
     chatClose.addEventListener("click", () => {
-        isChatOpen = false;
         chatContainer.style.display = "none";
         chatClose.style.display = "none";
     });
