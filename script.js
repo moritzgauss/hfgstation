@@ -38,26 +38,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 💬 Chat Widget Logic
     // Create external close button and insert it above chat container
+document.addEventListener("DOMContentLoaded", () => {
+    const chatTrigger = document.getElementById("chatTrigger");
+    const chatContainer = document.getElementById("chatContainer");
+
+    // Create close button
     const chatCloseButton = document.createElement("button");
     chatCloseButton.textContent = "X";
     chatCloseButton.classList.add("chat-close-button");
-    chatContainer.parentNode.insertBefore(chatCloseButton, chatContainer);
+    document.body.appendChild(chatCloseButton);
+
+    let isChatOpen = false;
 
     // Toggle chat visibility
     chatTrigger.addEventListener("click", () => {
         isChatOpen = !isChatOpen;
-        chatContainer.classList.toggle("show", isChatOpen);
+        chatContainer.style.display = isChatOpen ? "block" : "none";
         chatCloseButton.style.display = isChatOpen ? "block" : "none";
     });
 
-    // Close button to hide chat
+    // Close chat
     chatCloseButton.addEventListener("click", () => {
         isChatOpen = false;
-        chatContainer.classList.remove("show");
+        chatContainer.style.display = "none";
         chatCloseButton.style.display = "none";
     });
-
-    // Ensure chat and close button start hidden
-    chatContainer.classList.remove("show");
-    chatCloseButton.style.display = "none";
 });
