@@ -193,43 +193,41 @@ body {
     flex-shrink: 0;
 
 
+/* Fix chat container size */
 .chat-container {
-    display: none;
     position: fixed;
-    bottom: 80px;
+    bottom: 50px; /* Leaves space for the close button */
     right: 20px;
-    width: 300px;
-    height: 400px;
-    background: black;
-    border: 2px solid rgb(0, 255, 0);
-    border-radius: 10px;
+    width: 300px; /* Set a proper width */
+    height: 400px; /* Increase height */
+    max-height: 80vh;
+    background: black; /* Match existing styling */
+    border: 2px solid #00ff00;
+    display: none; /* Hidden by default */
     z-index: 1000;
 }
 
-/* Only show chat when toggled */
-.chat-container.show {
-    display: block;
+/* Fix chat trigger */
+.chat-trigger {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1001;
 }
 
-/* Close button placed above chat container */
+/* Style close button */
 .chat-close-button {
     position: fixed;
-    bottom: 490px; /* Adjust so it's above chat */
+    bottom: 460px; /* Above chat container */
     right: 20px;
-    width: 40px;
-    height: 30px;
     background: red;
     color: white;
     border: none;
+    padding: 5px 10px;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    z-index: 1001;
-    display: none; /* Initially hidden */
-}
-
-.chat-close-button:hover {
-    background: darkred;
+    display: none; /* Hidden by default */
+    z-index: 1002;
 }
 
 @media (prefers-color-scheme: dark) {
