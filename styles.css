@@ -211,28 +211,32 @@ body::-webkit-scrollbar-thumb {
     background: black;
     border: 2px solid rgb(0, 255, 0);
     border-radius: 10px;
-    overflow: hidden;
     z-index: 1000;
 }
 
-.chat-content {
-    width: 100%;
-    height: 100%;
+.chat-container.show {
+    display: block;
 }
 
-.chat-trigger {
+/* Close button styles */
+.chat-close-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 490px; /* Adjusted so it's above the chat */
     right: 20px;
-    width: 200px;
-    height: 60px;
+    width: 40px;
+    height: 30px;
+    background: red;
+    color: white;
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
     z-index: 1001;
+    display: none; /* Initially hidden */
 }
 
-.chat-text {
-    width: 100%;
-    height: 100%;
+.chat-close-button:hover {
+    background: darkred;
 }
 
 @media (prefers-color-scheme: dark) {
