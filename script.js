@@ -36,17 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Vergangene Sendungen ▼";
     });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const chatTrigger = document.getElementById("chatTrigger");
-    const chatContainer = document.getElementById("chatContainer");
-
-    // Create close button and insert it above chatContainer
+    // 💬 Chat Widget Logic
+    // Create external close button and insert it above chat container
     const chatCloseButton = document.createElement("button");
     chatCloseButton.textContent = "X";
     chatCloseButton.classList.add("chat-close-button");
     chatContainer.parentNode.insertBefore(chatCloseButton, chatContainer);
-
-    let isChatOpen = false;
 
     // Toggle chat visibility
     chatTrigger.addEventListener("click", () => {
@@ -62,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         chatCloseButton.style.display = "none";
     });
 
-    // Hide chat and close button initially
+    // Ensure chat and close button start hidden
     chatContainer.classList.remove("show");
     chatCloseButton.style.display = "none";
 });
