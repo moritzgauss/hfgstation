@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
     const playButton = document.getElementById("playButton");
     const liveBanner = document.getElementById("liveBanner");
-    const marquee = document.querySelector(".marquee");
     const toggleHeader = document.getElementById("toggleHeader");
     const showsContainer = document.getElementById("showsContainer");
-    const chatDiv = document.querySelector(".chat");
+    const chatTrigger = document.getElementById("chatTrigger");
+    const chatContainer = document.getElementById("chatContainer");
+    const chatTriggerText = document.getElementById("chatTriggerText");
 
     let isPlaying = false;
+    let isChatOpen = false;
 
-    // Play/Pause Button Logic
+    // 🎵 Play/Pause Button Logic
     playButton.addEventListener("click", () => {
         isPlaying = !isPlaying;
         playButton.classList.toggle("playing");
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Shows Container Toggle Logic
+    // 📅 Shows Container Toggle Logic
     toggleHeader.addEventListener("click", () => {
         showsContainer.classList.toggle("show");
         toggleHeader.textContent = showsContainer.classList.contains("show")
@@ -34,13 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Vergangene Sendungen ▼";
     });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const chatTrigger = document.getElementById("chatTrigger");
-    const chatContainer = document.getElementById("chatContainer");
-    const chatTriggerText = document.getElementById("chatTriggerText");
-
-    let isChatOpen = false;
-
+    // 💬 Chat Toggle Logic
     chatTrigger.addEventListener("click", () => {
         isChatOpen = !isChatOpen;
         
@@ -53,6 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Chat beim Laden sicher verstecken
+    // Chat beim Laden verstecken
     chatContainer.style.display = "none";
 });
