@@ -34,8 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
             : "Vergangene Sendungen ▼";
     });
 
-    // Hide Chat Div if it exists
-    if (chatDiv) {
-        chatDiv.style.display = "none";
-    }
-});
+document.addEventListener("DOMContentLoaded", () => {
+        const chatDiv = document.querySelector(".chat-container");
+        if (chatDiv) {
+            chatDiv.style.display = "none";
+        }
+    });
