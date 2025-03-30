@@ -157,7 +157,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .chat-wrapper {
-    display: none;
     position: fixed;
     bottom: 60px;
     right: 20px;
