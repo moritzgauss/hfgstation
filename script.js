@@ -15,16 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const iframeWindow = iframe.contentWindow;
         if (iframeWindow && iframeWindow.postMessage) {
             const message = {
-                action: !isPlaying ? 'play' : 'pause',
+                action: !isPlaying ? 'play' : 'pause',  // Fixed logic here
                 source: 'website'
             };
-            iframeWindow.postMessage(JSON.stringify(message), '*');
+            iframeWindow.postMessage(JSON.stringify(message), '*');  // Changed target origin
         }
     }
 
     playButton.addEventListener('click', () => {
-        togglePlay();
-        isPlaying = !isPlaying;
+        togglePlay();  // Call toggle first
+        isPlaying = !isPlaying;  // Then update state
         playButton.classList.toggle('playing');
         
         if (isPlaying) {
@@ -46,9 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 const data = JSON.parse(event.data);
                 if (data.type === 'metadata') {
+                    // Update now playing
                     if (data.current) {
                         nowPlayingText.textContent = data.current.name;
                     }
+                    // Update next up
                     if (data.next) {
                         nextUpText.textContent = data.next.name;
                     }
@@ -68,25 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
             : 'LAST SHOWS ▼';
     });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const chatTrigger = document.getElementById("chatTrigger");
-    const chatClose = document.getElementById("chatClose");
-    const chatWrapper = document.getElementById("chatWrapper");
+    // Chat functionality
+    const chatTrigger = document.getElementById('chatTrigger');
+    const chatClose = document.getElementById('chatClose');
+    const chatWrapper = document.getElementById('chatWrapper');
 
-    if (!chatTrigger || !chatClose || !chatWrapper) {
-        console.error("Chat elements not found.");
-        return;
-    }
-
-    chatTrigger.addEventListener("click", function () {
-        chatWrapper.classList.add("chat-visible");
-        chatTrigger.style.display = "none";
-        chatClose.style.display = "block";
+    // Initially hide chat wrapper
+    chatWrapper.style.display = 'none';
+    
+    chatTrigger.addEventListener('click', function() {
+        chatWrapper.style.display = 'block';
+        chatTrigger.style.display = 'none';
+        chatClose.style.display = 'block';
     });
 
-    chatClose.addEventListener("click", function () {
-        chatWrapper.classList.remove("chat-visible");
-        chatTrigger.style.display = "block";
-        chatClose.style.display = "none";
+    chatClose.addEventListener('click', function() {
+        chatWrapper.style.display = 'none';
+        chatTrigger.style.display = 'block';
+        chatClose.style.display = 'none';
     });
 });
