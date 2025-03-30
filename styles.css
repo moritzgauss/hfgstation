@@ -232,4 +232,6 @@ body::-webkit-scrollbar-thumb {
         background: black;
     }
     #chat-container {
-    
+        background: #000000;
+}
+}
