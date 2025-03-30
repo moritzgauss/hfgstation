@@ -158,11 +158,18 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
-.chat-wrapper {
+/* Hide chat wrapper by default */
+#chatWrapper {
+    display: none;
     position: fixed;
     right: 70px;
     bottom: 90px;
     z-index: 1000;
+}
+
+/* Show chat when active */
+#chatWrapper.chat-visible {
+    display: block;
 }
 
 .chat-trigger, .chat-close {
