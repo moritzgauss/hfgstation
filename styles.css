@@ -228,11 +228,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .chat-wrapper {
-    position: fixed;
-    bottom: 120px;
-    right: 60px;
-    display: none;
-    z-index: 1000;
+    bottom: 60px;
+    right: 20px;
 }
 
 .chat-trigger {
