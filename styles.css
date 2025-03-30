@@ -61,45 +61,6 @@ body {
     100% { transform: translateX(-100%); }
 }
 
-@media (max-width: 768px) {
-    
-    .live-banner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    overflow: hidden;
-    display: none;
-}
-
-    .marquee-text {
-        width: 260px;
-    }
-    
-    .marquee-text text {
-        transform: scaleX(0.8); 
-    }
-
-    .chat-trigger,
-    .chat-close {
-        width: 150px;
-        right: 10px;
-    }
-
-    .chat-wrapper {
-        right: 10px;
-        bottom: 90px;
-    }
-
-    .label-text {
-        width: 150px;
-    }
-    
-    .track-info {
-        padding: 0 10px;
-    }
-}
-
 .player-container {
     display: flex;
     justify-content: center;
@@ -141,18 +102,8 @@ body {
 }
 
 
-@font-face {
-    font-family: 'GreedWide';
-    src: url('https://raw.githubusercontent.com/moritzgauss/hfgstation/refs/heads/main/GreedWideTRIAL-RegularItalic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
 .toggle-header {
-    font-family: 'GreedWide', sans-serif;
-    font-size: 36px;
     margin-bottom: 40px;
-    border-radius: 10px;
     padding: 20px;
     background: none;
     border: none;
@@ -188,28 +139,6 @@ body {
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .toggle-header {
-    font-size: 26px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    padding: 20px;
-    background: none;
-    border: none;
-    color: inherit;
-    text-decoration: underline;
-    cursor: pointer;
-    width: 200px;
-    height: 60px;
-}
-    .shows-container.show {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        padding: 15px;
-    }
-}
-
-
 .footer {
     margin-top: auto;
     padding: 10px;
@@ -228,6 +157,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .chat-wrapper {
+    position: fixed;
     bottom: 60px;
     right: 20px;
 }
@@ -276,6 +206,65 @@ body::-webkit-scrollbar-thumb {
     visibility: hidden;
     width: 0;
     height: 0;
+}
+
+@media (max-width: 768px) {
+    
+    .toggle-header {
+    font-size: 26px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    padding: 20px;
+    background: none;
+    border: none;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 200px;
+    height: 60px;
+}
+    .shows-container.show {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .live-banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    display: none;
+}
+
+    .marquee-text {
+        width: 260px;
+    }
+    
+    .marquee-text text {
+        transform: scaleX(0.8); 
+    }
+
+    .chat-trigger,
+    .chat-close {
+        width: 150px;
+        right: 10px;
+    }
+
+    .chat-wrapper {
+        right: 10px;
+        bottom: 90px;
+    }
+
+    .label-text {
+        width: 150px;
+    }
+    
+    .track-info {
+        padding: 0 10px;
+    }
+}
 }
 
 @media (prefers-color-scheme: dark) {
