@@ -160,21 +160,12 @@ body::-webkit-scrollbar-thumb {
 
 .chat-wrapper {
     position: fixed;
-    bottom: 60px;
-    right: 20px;
+    right: 70px;
+    bottom: 90px;
+    z-index: 1000;
 }
 
-.chat-trigger {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 200px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.chat-close {
+.chat-trigger, .chat-close {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -255,7 +246,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     .chat-wrapper {
-        right: 10px;
+        right: 40px;
         bottom: 90px;
     }
 
@@ -266,7 +257,6 @@ body::-webkit-scrollbar-thumb {
     .track-info {
         padding: 0 10px;
     }
-}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -290,4 +280,5 @@ body::-webkit-scrollbar-thumb {
     .label-text text, .marquee-text:not(.live-banner .marquee-text) text {
         fill: white;
     }
+
 }

@@ -75,10 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatClose = document.getElementById('chatClose');
     const chatWrapper = document.getElementById('chatWrapper');
 
+    // Initially hide chat wrapper
+    chatWrapper.style.display = 'none';
+    
     chatTrigger.addEventListener('click', function() {
-        chatWrapper.style.display = 'none';
-        chatTrigger.style.display = 'block';
-        chatClose.style.display = 'none';
+        chatWrapper.style.display = 'block';
+        chatTrigger.style.display = 'none';
+        chatClose.style.display = 'block';
     });
 
     chatClose.addEventListener('click', function() {
