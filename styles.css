@@ -27,6 +27,9 @@ body {
     position: absolute;
     white-space: nowrap;
     will-change: transform;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
 }
 
 .marquee-content {
@@ -70,18 +73,31 @@ body {
 }
 
     .marquee-text {
-        width: 260px; /* Smaller for mobile */
+        width: 260px;
     }
     
     .marquee-text text {
         transform: scaleX(0.8); 
     }
-        .title {
-        padding-left: 10px; padding-right: 10px;
+
+    .chat-trigger,
+    .chat-close {
+        width: 150px;
+        right: 10px;
     }
-            .title-text {
-                        transform: scaleX(1.2); 
-                }
+
+    .chat-wrapper {
+        right: 10px;
+        bottom: 90px;
+    }
+
+    .label-text {
+        width: 150px;
+    }
+    
+    .track-info {
+        padding: 0 10px;
+    }
 }
 
 .player-container {
@@ -143,6 +159,14 @@ body {
     color: inherit;
     text-decoration: underline;
     cursor: pointer;
+    width: 300px;
+    height: 80px;
+    margin: 20px auto;
+}
+
+.header-text {
+    width: 100%;
+    height: 100%;
 }
 
 .shows-container {
@@ -175,6 +199,8 @@ body {
     color: inherit;
     text-decoration: underline;
     cursor: pointer;
+    width: 200px;
+    height: 60px;
 }
     .shows-container.show {
         grid-template-columns: repeat(2, 1fr);
@@ -201,6 +227,14 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
+.chat-wrapper {
+    position: fixed;
+    bottom: 120px;
+    right: 60px;
+    display: none;
+    z-index: 1000;
+}
+
 .chat-trigger {
     position: fixed;
     bottom: 20px;
@@ -211,9 +245,40 @@ body::-webkit-scrollbar-thumb {
     z-index: 1001;
 }
 
-.chat-text {
+.chat-close {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.now-playing-banner, .next-up-banner {
     width: 100%;
-    height: 100%;
+    height: 60px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.label-text {
+    width: 200px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+#embed_player {
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -228,10 +293,13 @@ body::-webkit-scrollbar-thumb {
         background: #444;
         color: #fff;
     }
-    .live-banner {
-        background: black;
+    .now-playing-banner text, .next-up-banner text {
+        fill: #fff !important;
     }
-    #chat-container {
-        background: #000000;
-}
+    .toggle-header svg text {
+        fill: white;
+    }
+    .label-text text, .marquee-text:not(.live-banner .marquee-text) text {
+        fill: white;
+    }
 }

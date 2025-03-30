@@ -4,11 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const marquee = document.querySelector('.marquee');
     const toggleHeader = document.getElementById('toggleHeader');
     const showsContainer = document.getElementById('showsContainer');
+    const iframe = document.getElementById('embed_player');
+    const nowPlayingText = document.getElementById('nowPlayingText');
+    const nextUpText = document.getElementById('nextUpText');
 
     let isPlaying = false;
 
+    // Function to control iframe player
+    function togglePlay() {
+        const iframeWindow = iframe.contentWindow;
+        if (iframeWindow && iframeWindow.postMessage) {
+            const message = {
+                action: !isPlaying ? 'play' : 'pause',  // Fixed logic here
+                source: 'website'
+            };
+            iframeWindow.postMessage(JSON.stringify(message), '*');  // Changed target origin
+        }
+    }
+
     playButton.addEventListener('click', () => {
-        isPlaying = !isPlaying;
+        togglePlay();  // Call toggle first
+        isPlaying = !isPlaying;  // Then update state
         playButton.classList.toggle('playing');
         
         if (isPlaying) {
@@ -24,17 +40,50 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Listen for messages from iframe
+    window.addEventListener('message', (event) => {
+        if (event.origin === 'https://hfgradio.airtime.pro') {
+            try {
+                const data = JSON.parse(event.data);
+                if (data.type === 'metadata') {
+                    // Update now playing
+                    if (data.current) {
+                        nowPlayingText.textContent = data.current.name;
+                    }
+                    // Update next up
+                    if (data.next) {
+                        nextUpText.textContent = data.next.name;
+                    }
+                }
+            } catch (e) {
+                console.error('Error parsing player message:', e);
+            }
+        }
+    });
+
     // Shows Container Toggle Logic
     toggleHeader.addEventListener('click', () => {
         showsContainer.classList.toggle('show');
-        toggleHeader.textContent = showsContainer.classList.contains('show') 
-            ? 'Vergangene Sendungen ▲' 
-            : 'Vergangene Sendungen ▼';
+        const headerText = toggleHeader.querySelector('text');
+        headerText.textContent = showsContainer.classList.contains('show') 
+            ? 'LAST SHOWS ▲' 
+            : 'LAST SHOWS ▼';
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const chatDiv = document.querySelector(".chat");
-        if (chatDiv) {
-            chatDiv.style.display = "none";
-        }
+    // Chat functionality
+    const chatTrigger = document.getElementById('chatTrigger');
+    const chatClose = document.getElementById('chatClose');
+    const chatWrapper = document.getElementById('chatWrapper');
+
+    chatTrigger.addEventListener('click', function() {
+        chatWrapper.style.display = 'block';
+        chatTrigger.style.display = 'none';
+        chatClose.style.display = 'block';
     });
+
+    chatClose.addEventListener('click', function() {
+        chatWrapper.style.display = 'none';
+        chatTrigger.style.display = 'block';
+        chatClose.style.display = 'none';
+    });
+});
