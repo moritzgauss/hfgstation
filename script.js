@@ -76,9 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatWrapper = document.getElementById('chatWrapper');
 
     chatTrigger.addEventListener('click', function() {
-        chatWrapper.style.display = 'block';
-        chatTrigger.style.display = 'none';
-        chatClose.style.display = 'block';
+        chatWrapper.style.display = 'none';
+        chatTrigger.style.display = 'block';
+        chatClose.style.display = 'none';
     });
 
     chatClose.addEventListener('click', function() {
