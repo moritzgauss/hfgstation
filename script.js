@@ -15,16 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const iframeWindow = iframe.contentWindow;
         if (iframeWindow && iframeWindow.postMessage) {
             const message = {
-                action: !isPlaying ? 'play' : 'pause',  // Fixed logic here
+                action: !isPlaying ? 'play' : 'pause',
                 source: 'website'
             };
-            iframeWindow.postMessage(JSON.stringify(message), '*');  // Changed target origin
+            iframeWindow.postMessage(JSON.stringify(message), '*');
         }
     }
 
     playButton.addEventListener('click', () => {
-        togglePlay();  // Call toggle first
-        isPlaying = !isPlaying;  // Then update state
+        togglePlay();
+        isPlaying = !isPlaying;
         playButton.classList.toggle('playing');
         
         if (isPlaying) {
@@ -46,11 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 const data = JSON.parse(event.data);
                 if (data.type === 'metadata') {
-                    // Update now playing
                     if (data.current) {
                         nowPlayingText.textContent = data.current.name;
                     }
-                    // Update next up
                     if (data.next) {
                         nextUpText.textContent = data.next.name;
                     }
@@ -75,17 +73,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatClose = document.getElementById('chatClose');
     const chatWrapper = document.getElementById('chatWrapper');
 
+    // Ensure elements exist
+    if (!chatTrigger || !chatClose || !chatWrapper) {
+        console.error("Chat elements not found");
+        return;
+    }
+
     // Initially hide chat wrapper
-    chatWrapper.style.display = 'none';
-    
+    chatWrapper.classList.add('hidden');
+
     chatTrigger.addEventListener('click', function() {
-        chatWrapper.style.display = 'block';
-        chatTrigger.style.display = 'none';
-        chatClose.style.display = 'block';
+        chatWrapper.classList.toggle('show');
+        chatTrigger.style.display = chatWrapper.classList.contains('show') ? 'none' : 'block';
+        chatClose.style.display = chatWrapper.classList.contains('show') ? 'block' : 'none';
     });
 
     chatClose.addEventListener('click', function() {
-        chatWrapper.style.display = 'none';
+        chatWrapper.classList.remove('show');
         chatTrigger.style.display = 'block';
         chatClose.style.display = 'none';
     });
