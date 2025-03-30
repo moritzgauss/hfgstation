@@ -68,29 +68,25 @@ document.addEventListener("DOMContentLoaded", () => {
             : 'LAST SHOWS ▼';
     });
 
-    // Chat functionality
-    const chatTrigger = document.getElementById('chatTrigger');
-    const chatClose = document.getElementById('chatClose');
-    const chatWrapper = document.getElementById('chatWrapper');
+document.addEventListener("DOMContentLoaded", () => {
+    const chatTrigger = document.getElementById("chatTrigger");
+    const chatClose = document.getElementById("chatClose");
+    const chatWrapper = document.getElementById("chatWrapper");
 
-    // Ensure elements exist
     if (!chatTrigger || !chatClose || !chatWrapper) {
-        console.error("Chat elements not found");
+        console.error("Chat elements not found.");
         return;
     }
 
-    // Initially hide chat wrapper
-    chatWrapper.classList.add('hidden');
-
-    chatTrigger.addEventListener('click', function() {
-        chatWrapper.classList.toggle('show');
-        chatTrigger.style.display = chatWrapper.classList.contains('show') ? 'none' : 'block';
-        chatClose.style.display = chatWrapper.classList.contains('show') ? 'block' : 'none';
+    chatTrigger.addEventListener("click", function () {
+        chatWrapper.classList.add("chat-visible");
+        chatTrigger.style.display = "none";
+        chatClose.style.display = "block";
     });
 
-    chatClose.addEventListener('click', function() {
-        chatWrapper.classList.remove('show');
-        chatTrigger.style.display = 'block';
-        chatClose.style.display = 'none';
+    chatClose.addEventListener("click", function () {
+        chatWrapper.classList.remove("chat-visible");
+        chatTrigger.style.display = "block";
+        chatClose.style.display = "none";
     });
 });
