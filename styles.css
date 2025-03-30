@@ -9,10 +9,11 @@ body {
     flex-direction: column;
     overflow-x: hidden;
 }
+
 .live-banner {
     position: fixed;
     top: 0;
-    width: 100%;
+    max-width: 100%;
     height: 80px;
     overflow: hidden;
     display: none;
@@ -40,6 +41,7 @@ body {
 }
 
 .marquee-text {
+    max-width: 100%;
     height: 80px;
     width: 300px;
     flex-shrink: 0;
