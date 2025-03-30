@@ -158,18 +158,12 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
-/* Standardmäßig Chat verstecken */
 .chat-wrapper {
-    display: none;
     position: fixed;
-    bottom: 130px;
     right: 70px;
+    bottom: 90px;
     z-index: 1000;
 }
-
-/* Wenn Chat sichtbar ist */
-.chat-wrapper.chat-visible {
-    display: block;
 
 .chat-trigger, .chat-close {
     position: fixed;
