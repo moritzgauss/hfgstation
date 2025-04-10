@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HFG Off Station</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -49,28 +49,37 @@
         
     </div>
    
+    <div class="clock-section">
+        <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="clock-text">
+            <text class="clock-text" id="clockText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke="black" stroke-width="1" fill="none" textLength="80%" lengthAdjust="spacingAndGlyphs" font-size="48px">00:00:00</text>
+        </svg>
+    </div>
+
     <div class="title-section">
-        <svg class="title" viewBox="auto" preserveAspectRatio="none" style="width: 100vw; height: 200px; margin-left: 20px; margin-right: 20px;">
-            <text class="title-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="DM Sans, sans-serif" font-weight="500" textLength="100%" lengthAdjust="spacingAndGlyphs" font-size="48px">
+        <svg class="title" preserveAspectRatio="none" style="width: 100vw; height: 200px; margin-left: 20px; margin-right: 20px;">
+            <text class="title-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" font-weight="500" textLength="100%" lengthAdjust="spacingAndGlyphs" font-size="48px">
                 HfG Radio
             </text>
         </svg>
     </div>
     
     <div class="player-container">
-        <iframe id="embed_player" style="display: none;" frameborder="0" width="280" height="216" src="https://hfgradio.airtime.pro/embed/player?stream=auto&skin=1"></iframe>
-        <button class="play-button" id="playButton">▶</button>
+        <div id="airtime-player-container">
+            <iframe id="airtime-widget" frameborder="0" 
+                src="https://hfgradio.airtime.pro/embed/player?stream=auto&title=0"></iframe>
+        </div>
     </div>
 
+<div class="track-info-container">
     <div class="now-playing-banner" id="nowPlayingBanner">
         <div class="track-info">
             <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="label-text">
-                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="90%" lengthAdjust="spacingAndGlyphs">NOW PLAYING:</text>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">NOW PLAYING:</text>
             </svg>
             <div class="marquee">
                 <div class="marquee-content">
                     <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="marquee-text">
-                        <text id="nowPlayingText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="90%" lengthAdjust="spacingAndGlyphs">Loading...</text>
+                        <text id="nowPlayingText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">Loading...</text>
                     </svg>
                 </div>
             </div>
@@ -80,18 +89,32 @@
     <div class="next-up-banner" id="nextUpBanner">
         <div class="track-info">
             <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="label-text">
-                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="90%" lengthAdjust="spacingAndGlyphs">NEXT UP:</text>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">NEXT UP:</text>
             </svg>
             <div class="marquee">
                 <div class="marquee-content">
                     <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="marquee-text">
-                        <text id="nextUpText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="90%" lengthAdjust="spacingAndGlyphs">Loading...</text>
+                        <text id="nextUpText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">Loading...</text>
                     </svg>
                 </div>
             </div>
         </div>
     </div>
+</div>
     
+    <div class="calendar-section">
+        <div id="toggleCalendar" class="toggle-header">
+            <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="header-text">
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="80%" lengthAdjust="spacingAndGlyphs">UPCOMING SHOWS ▼</text>
+            </svg>
+                </div>
+        <div id="calendarContainer" class="calendar-container">
+            <div id="calendarContent" class="calendar-content">
+                <!-- Shows will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
     <div class="past-shows">
         <div class="toggle-header" id="toggleHeader">
             <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="header-text">
