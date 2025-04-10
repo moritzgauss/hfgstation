@@ -126,7 +126,6 @@ body {
     display: none;
     padding: 20px;
     position: relative;
-    margin-bottom: 80px; /* Increase bottom margin */
     width: 100%;
     box-sizing: border-box;
 }
@@ -150,15 +149,15 @@ body {
 }
 
 .footer {
-    margin-top: auto;
-    padding: 20px 10px; /* Increase padding */
+    padding: 20px; /* Increase padding */
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
     text-align: center;
     flex-shrink: 0;
     position: relative; /* Add position */
     background: #fff; /* Add background */
-    z-index: 1; /* Ensure footer stays above content */
+    bottom: 0px;
+
 }
 
 body::-webkit-scrollbar {
@@ -337,7 +336,6 @@ body::-webkit-scrollbar-thumb {
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
         padding: 15px;
-        margin-bottom: 120px; /* Increase margin on mobile */
     }
     
     .live-banner {
@@ -435,9 +433,6 @@ body::-webkit-scrollbar-thumb {
         width: 100%;
         box-sizing: border-box;
         padding: 10px;
-    }
-    .footer {
-        padding-bottom: 120px; /* Account for chat on mobile */
     }
 
     .clock-section {
