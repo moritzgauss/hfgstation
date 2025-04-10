@@ -159,13 +159,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .chat-wrapper {
+    display: block;
     position: fixed;
     right: 70px;
     bottom: 90px;
     z-index: 1000;
 }
 
+.chat-wrapper-mobile {
+    display: none;
+}
+
 .chat-trigger, .chat-close {
+    display: block;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -238,17 +244,18 @@ body::-webkit-scrollbar-thumb {
     .marquee-text text {
         transform: scaleX(0.8); 
     }
-
-    .chat-trigger,
-    .chat-close {
-        width: 150px;
-        right: 10px;
-    }
-
     .chat-wrapper {
-        right: 40px;
-        bottom: 90px;
+        display: none;
     }
+
+    .chat-wrapper-mobile {
+        display: block;
+    }
+
+    .chat-trigger, .chat-close {
+        display: none !important; /* Added to ensure buttons are hidden */
+    }
+    
 
     .label-text {
         width: 150px;
