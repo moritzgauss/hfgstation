@@ -456,9 +456,6 @@ body::-webkit-scrollbar-thumb {
         grid-template-columns: 1fr;
     }
 
-    .footer {
-        padding-bottom: 100px;
-    }
     .track-info-container {
         padding: 5px;
         max-width: 100%;
