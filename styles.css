@@ -167,7 +167,7 @@ body {
     background: #fff;
     position: relative;
     box-sizing: border-box;
-    margin-top: auto;
+    padding-bottom: 100px;
 }
 
 body::-webkit-scrollbar {
