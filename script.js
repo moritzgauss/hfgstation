@@ -99,13 +99,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             ? 'LAST SHOWS ▲' 
             : 'LAST SHOWS ▼';
         
-        // Reset all flipped cards when closing the section
-        if (!showsContainer.classList.contains('show')) {
-            const flippedCards = showsContainer.querySelectorAll('.show-inner');
-            flippedCards.forEach(card => {
-                card.style.transform = 'rotateY(0)';
-            });
-        }
     });
 
     // Chat functionality
@@ -242,119 +235,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // Update show schedules every 5 minutes
-    setInterval(updateShowSchedules, 300000);
-    updateShowSchedules();
-
-    async function updateShowsContent() {
-        const showsContent = document.getElementById('showsContent');
-        showsContent.innerHTML = '';
-        
-        // Updated client ID from the network request
-        const clientId = 'MOW7TryzxyVMsbJEG~YD4NUx3INp4142VpeVhOXoCVXRkrNRzWhheqyiRIsOnWXKn0T48AgNxSfDUTG1jeE_A9HUDRKEn5AVl4boyGCLm783065PRz3hlSCW7_QekqZ9';
-        const username = 'piquedeux';
-    
-        try {
-            // Add headers to match the browser request
-            const headers = {
-                'Accept': '*/*',
-                'Accept-Language': 'de-DE,de;q=0.9',
-                'Origin': 'https://soundcloud.com',
-                'Referer': 'https://soundcloud.com/',
-                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15'
-            };
-    
-            // First get the user ID
-            const userResponse = await fetch(
-                `https://api-v2.soundcloud.com/resolve?url=https://soundcloud.com/${username}&client_id=${clientId}`,
-                { headers }
-            );
-            
-            if (!userResponse.ok) {
-                throw new Error(`HTTP error! status: ${userResponse.status}`);
-            }
-            const userData = await userResponse.json();
-    
-            // Then get their tracks
-            const tracksResponse = await fetch(
-                `https://api-v2.soundcloud.com/users/${userData.id}/tracks?client_id=${clientId}&limit=20`,
-                { headers }
-            );
-            
-            if (!tracksResponse.ok) {
-                throw new Error(`HTTP error! status: ${tracksResponse.status}`);
-            }
-            const tracks = await tracksResponse.json();
-    
-            if (!Array.isArray(tracks) || tracks.length === 0) {
-                showsContent.innerHTML = '<p>No tracks available</p>';
-                return;
-            }
-    
-            // Create a card for each track
-            tracks.forEach(track => {
-                const showElement = document.createElement('div');
-                showElement.className = 'show';
-                
-                const trackDate = new Date(track.created_at);
-                const formattedDate = trackDate.toLocaleDateString('de-DE', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-    
-                showElement.innerHTML = `
-                    <div class="show-inner">
-                        <div class="show-front">
-                            <div class="calendar-time">
-                                <span class="day">${formattedDate}</span>
-                            </div>
-                            <div class="calendar-details">
-                                <h3>${track.title}</h3>
-                                <p>${track.description || 'No description available'}</p>
-                            </div>
-                        </div>
-                        <div class="show-back">
-                            <button class="back-button"></button>
-                            <iframe 
-                                width="100%" 
-                                height="100%" 
-                                scrolling="no" 
-                                frameborder="no" 
-                                allow="autoplay" 
-                                src="https://w.soundcloud.com/player/?url=${encodeURIComponent(track.permalink_url)}&color=%23000000&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
-                            </iframe>
-                        </div>
-                    </div>
-                `;
-    
-                const showInner = showElement.querySelector('.show-inner');
-                const backButton = showElement.querySelector('.back-button');
-                
-                showElement.addEventListener('click', (e) => {
-                    if (!e.target.classList.contains('back-button')) {
-                        showInner.style.transform = 'rotateY(180deg)';
-                    }
-                });
-                
-                backButton.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    showInner.style.transform = 'rotateY(0)';
-                });
-                
-                showsContent.appendChild(showElement);
-            });
-        } catch (error) {
-            console.error('Failed to load SoundCloud content:', error);
-            showsContent.innerHTML = '<p>Failed to load tracks. Please try again later.</p>';
-        }
-    }
-
-    // Call the function to load tracks
-    updateShowsContent();
-
-    // Update show schedules every 5 minutes
-    setInterval(updateShowSchedules, 300000);
-    updateShowSchedules();
-
-});
+        // Update show schedules every 5 minutes
+        setInterval(updateShowSchedules, 300000);
+        updateShowSchedules();
+    });
