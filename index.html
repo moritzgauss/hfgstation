@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="main-content">
-        <div class="live-banner" id="liveBanner">
+    
+            <div class="live-banner" id="liveBanner">
             <div class="marquee">
                 <div class="marquee-content">
                     <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="marquee-text">
@@ -48,6 +48,8 @@
             </div>
         </div>
        
+    <div class="main-content">
+
         <div class="clock-section">
             <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="clock-text">
                 <text class="clock-text" id="clockText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke="black" stroke-width="1" fill="none" textLength="80%" lengthAdjust="spacingAndGlyphs" font-size="48px">00:00:00</text>
@@ -121,25 +123,10 @@
                 </svg>
             </div>
             <div class="shows-container" id="showsContainer">
-                <div class="show">Show 1</div>
-                <div class="show">Show 2</div>
-                <div class="show">Show 3</div>
-                <div class="show">Show 4</div>
-                <div class="show">Show 5</div>
-                <div class="show">Show 6</div>
-                <div class="show">Show 7</div>
-                <div class="show">Show 8</div>
-                <div class="show">Show 9</div>
-                <div class="show">Show 10</div>
-                <div class="show">Show 11</div>
-                <div class="show">Show 12</div>
-                <div class="show">Show 13</div>
-                <div class="show">Show 14</div>
-                <div class="show">Show 15</div>
-                <div class="show">Show 16</div>
-                <div class="show">Show 17</div>
+                <div id="showsContent" class="shows-content">
             </div>
         </div>
+    </div>
     
         <div class="chat-wrapper"  id="chatWrapper">
             <script id="cid0020000405286862654" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 350px;">{"handle":"hfgstation","arch":"js","styles":{"a":"00ff00","b":100,"c":"000000","d":"000000","k":"00ff00","l":"00ff00","m":"00ff00","p":"10","q":"00ff00","r":100,"t":0,"ab":false,"usricon":0,"allowpm":0,"fwtickm":1}}</script>
@@ -155,13 +142,15 @@
             </svg>
         </div>
     </div>
-    
-    <div class="chat-wrapper-mobile" >
-        <script id="cid0020000405286831539" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 350px;">{"handle":"hfgstation","arch":"js","styles":{"a":"00ff00","b":100,"c":"000000","d":"000000","k":"00ff00","l":"00ff00","m":"00ff00","p":"10","q":"00ff00","r":100,"t":0,"ab":false,"usricon":0,"allowpm":0,"fwtickm":1}}</script>
-    </div>   
-    </div>
+</div>
     
     <footer class="footer">© HFG Off Station</footer>
+    
+    
+        <div class="chat-wrapper-mobile" >
+        <script id="cid0020000405286831539" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 350px;">{"handle":"hfgstation","arch":"js","styles":{"a":"00ff00","b":100,"c":"000000","d":"000000","k":"00ff00","l":"00ff00","m":"00ff00","p":"10","q":"00ff00","r":100,"t":0,"ab":false,"usricon":0,"allowpm":0,"fwtickm":1}}</script>
+    </div>   
+    
     
     <script src="script.js"></script>
 </body>
