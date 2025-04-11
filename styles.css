@@ -9,8 +9,17 @@ body {
     flex-direction: column;
     overflow-x: hidden;
     width: 100%;
-    min-height: 100vh;
     box-sizing: border-box;
+}
+
+/* Add main wrapper */
+.main-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding-bottom: 60px; /* Space for footer */
 }
 
 .live-banner {
@@ -139,7 +148,7 @@ body {
     max-width: 100vw;
     box-sizing: border-box;
     padding: 20px;
-    margin-bottom: 80px; /* Add bottom margin when shown */
+    margin-bottom: 0; /* Remove margin bottom */
 }
 
 .show {
@@ -149,15 +158,16 @@ body {
 }
 
 .footer {
-    padding: 20px; /* Increase padding */
+    flex-shrink: 0;
+    width: 100%;
+    padding: 20px;
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
     text-align: center;
-    flex-shrink: 0;
-    position: relative; /* Add position */
-    background: #fff; /* Add background */
-    bottom: 0px;
-
+    background: #fff;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: auto;
 }
 
 body::-webkit-scrollbar {
@@ -273,6 +283,7 @@ body::-webkit-scrollbar-thumb {
 
 .calendar-container.show {
     max-height: 500px;
+    margin-bottom: 0; /* Remove margin bottom */
 }
 
 .calendar-content {
@@ -440,6 +451,10 @@ body::-webkit-scrollbar-thumb {
         height: 50px;
     }
 
+    .main-content {
+        padding-bottom: 100px; /* Increased padding for mobile */
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -453,6 +468,10 @@ body::-webkit-scrollbar-thumb {
     .track-info-container {
         padding: 5px;
         max-width: 100%;
+    }
+
+    .main-content {
+        padding-bottom: 120px; /* Even more padding for smaller screens */
     }
 }
 
