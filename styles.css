@@ -383,12 +383,6 @@ body::-webkit-scrollbar-thumb {
         max-width: calc(100% - 110px);
     }
 
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
-
     .title-section {
         width: 100%;
         padding: 0;
