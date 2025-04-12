@@ -238,7 +238,10 @@ body::-webkit-scrollbar-thumb {
 
 .clock-section {
     height: 60px;
-    margin: 40px auto;
+margin-top: 40px;
+margin-right: auto;
+margin-bottom: 20px;
+margin-left: auto;
 }
 
 .clock-text {
