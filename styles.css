@@ -139,16 +139,10 @@ body {
 }
 
 .shows-container.show {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 1200px;
+    display: block;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-}
-
-.shows-container iframe {
-    width: 100%;
 }
 
 .footer {
@@ -505,6 +499,68 @@ body::-webkit-scrollbar-thumb {
     transform: rotateY(180deg);
 }
 
+.offline-notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 16px 20px;
+    border-radius: 14px;
+    margin: 10px;
+    z-index: 1000;
+    color: white;
+    width: auto;
+    max-width: 90%;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.offline-notification.show {
+    top: 10px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.offline-notification.hide {
+    top: -100px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.notification-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.notification-text {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.notification-arrow {
+    font-size: 20px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
     
@@ -602,7 +658,7 @@ body::-webkit-scrollbar-thumb {
 
     .shows-container.show {
         padding: 10px;
-        max-width: 80%;
+        max-width: 90%;
     }
 }
 
@@ -615,6 +671,10 @@ body::-webkit-scrollbar-thumb {
 
     .main-content {
         padding-bottom: 120px; /* Even more padding for smaller screens */
+    }
+
+    .notification-text {
+        font-size: 14px;
     }
 
     .calendar-content {
@@ -667,5 +727,9 @@ body::-webkit-scrollbar-thumb {
     .calendar-item .show-front,
     .calendar-item .show-back {
         background: #000;
+    }
+    .offline-notification {
+        background: rgba(255, 255, 255, 0.8);
+        color: black;
     }
 }

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const liveBanner = document.getElementById('liveBanner');
     const airtimeContainer = document.getElementById('airtime-player-container');
+    const offlineNotification = document.getElementById('offlineNotification');
     
     let isPlaying = false;
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // If we're between start and end time of a show
                 if (now >= startTime && now <= endTime) {
                     liveBanner.classList.add('show');
+                    offlineNotification.classList.remove('show');
                     const contents = document.querySelectorAll('.marquee-content');
                     contents.forEach(content => {
                         content.style.animation = 'none';
@@ -28,25 +30,43 @@ document.addEventListener("DOMContentLoaded", async () => {
                     });
                     isPlaying = true;
                 } else {
-                    liveBanner.classList.remove('show');
-                    const contents = document.querySelectorAll('.marquee-content');
-                    contents.forEach(content => {
-                        content.style.animation = 'none';
-                    });
-                    isPlaying = false;
+                    handleOfflineState();
                 }
             } else {
-                liveBanner.classList.remove('show');
-                const contents = document.querySelectorAll('.marquee-content');
-                contents.forEach(content => {
-                    content.style.animation = 'none';
-                });
-                isPlaying = false;
+                handleOfflineState();
             }
         } catch (error) {
             console.error('Failed to fetch live show info:', error);
+            handleOfflineState();
         }
     }
+
+    function handleOfflineState() {
+        liveBanner.classList.remove('show');
+        offlineNotification.classList.add('show');
+        const contents = document.querySelectorAll('.marquee-content');
+        contents.forEach(content => {
+            content.style.animation = 'none';
+        });
+        isPlaying = false;
+    }
+
+    // Add click handler for notification
+    offlineNotification.addEventListener('click', () => {
+        offlineNotification.classList.add('hide');
+        offlineNotification.classList.remove('show');
+        
+        const showsSection = document.getElementById('showsContainer');
+        const showsHeader = document.getElementById('toggleHeader');
+        
+        showsContainer.classList.add('show');
+        showsHeader.querySelector('text').textContent = 'LAST SHOWS ▲';
+        
+        // Add small delay before scrolling to ensure animation completes
+        setTimeout(() => {
+            showsSection.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    });
 
     // Check for live show every 30 seconds
     setInterval(checkLiveShow, 30000);
@@ -96,8 +116,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         showsContainer.classList.toggle('show');
         const headerText = toggleHeader.querySelector('text');
         headerText.textContent = showsContainer.classList.contains('show') 
-            ? 'LAST SHOWS ▲' 
-            : 'LAST SHOWS ▼';
+            ? 'ARCHIVE ▲' 
+            : 'ARCHIVE ▼';
         
     });
 
