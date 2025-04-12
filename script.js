@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const showsHeader = document.getElementById('toggleHeader');
         
         showsContainer.classList.add('show');
-        showsHeader.querySelector('text').textContent = 'LAST SHOWS ▲';
+        showsHeader.querySelector('text').textContent = 'ARCHIVE ▲';
         
         // Add small delay before scrolling to ensure animation completes
         setTimeout(() => {
