@@ -428,7 +428,8 @@ margin-left: auto;
     margin: 10px;
     z-index: 1000;
     color: white;
-    width: 100%;
+    width: auto;
+    max-width: 60vw;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
@@ -515,7 +516,7 @@ margin-left: auto;
 
     .track-info-container {
         padding: 10px;
-        max-width: 95%;
+        max-width: 80%;
     }
 
 
@@ -549,7 +550,6 @@ margin-left: auto;
 
 
     .calendar-content {
-        width: 100%
         grid-template-columns: 1fr;
         gap: 15px;
         padding: 10px;
@@ -581,7 +581,6 @@ margin-left: auto;
 
     .track-info-container {
         padding: 5px;
-        max-width: 100%;
     }
 
     .main-content {
