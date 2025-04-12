@@ -84,6 +84,7 @@ body {
     position: relative;
     width: 220px;
     margin: 0 auto;
+    padding-bottom: 10px;
 }
 
 #airtime-player-container {
