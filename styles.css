@@ -501,16 +501,27 @@ margin-left: auto;
     .marquee-text text {
         transform: scaleX(0.8); 
     }
-    .chat-wrapper {
+    /*.chat-wrapper {
         display: none;
     }
 
     .chat-wrapper-mobile {
         display: block;
-    }
+    }*/
 
     .chat-trigger, .chat-close {
-        display: none !important; /* Added to ensure buttons are hidden */
+        display: none !important;
+    }
+
+    .chat-trigger-mobile {
+        display: block;
+        position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 140px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 1001;
     }
     
 
