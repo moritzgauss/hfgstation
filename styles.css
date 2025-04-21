@@ -520,9 +520,9 @@ margin-left: auto;
     .chat-trigger-mobile {
         display: block;
         position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 140px;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
     height: 60px;
     cursor: pointer;
     z-index: 1001;
