@@ -146,6 +146,9 @@
         </div>
     
         <div class="chat-wrapper"  id="chatWrapper">
+<!-- Chat Wrapper für Desktop -->
+<div id="chat-wrapper" style="width: 400px; height: 350px;"></div>
+
 <script>
   const isMobile = window.innerWidth <= 768;
 
@@ -176,15 +179,12 @@
         fwtickm: 1
       }
     });
-    document.body.appendChild(script);
+    document.getElementById('chat-wrapper').appendChild(script);
   } else {
-    // Mobile: Show a styled chat trigger
     const link = document.createElement('a');
     link.href = 'https://hfgstation.chatango.com/';
     link.target = '_blank';
     link.setAttribute('aria-label', 'Chat öffnen');
-
-    // Create inner div and svg like the desktop version
     link.innerHTML = `
       <div style="
         position: fixed;
@@ -198,10 +198,10 @@
         </svg>
       </div>
     `;
-
     document.body.appendChild(link);
   }
 </script>
+
         </div>
             <div class="chat-trigger" id="chatTrigger">
             <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="chat-text">
