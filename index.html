@@ -1,12 +1,3 @@
-<!--
- __  __       ____  
-|  \/  |     / ___| 
-| \  / |    | | __  
-| |\/| |    | |(  | 
-| |  | |  _ | |_) |  _ 
-(_)  (_) (_) \____| (_)
-
--->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -62,14 +53,14 @@
 
         <div class="clock-section">
             <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="clock-text">
-                <text class="clock-text" id="clockText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke="black" stroke-width="1" fill="none" textLength="100%" lengthAdjust="spacingAndGlyphs" font-size="48px">00:00:00</text>
+                <text class="clock-text" id="clockText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke="black" stroke-width="1" fill="none" textLength="80%" lengthAdjust="spacingAndGlyphs" font-size="48px">00:00:00</text>
             </svg>
         </div>
     
         <div class="title-section">
             <svg class="title" preserveAspectRatio="none" style="width: 100vw; height: 200px; margin-left: 20px; margin-right: 20px;">
                 <text class="title-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" font-weight="500" textLength="100%" lengthAdjust="spacingAndGlyphs" font-size="48px">
-                    HFG RADIO
+                    HfG Radio
                 </text>
             </svg>
         </div>
@@ -85,12 +76,12 @@
             <div class="now-playing-banner" id="nowPlayingBanner">
                 <div class="track-info">
                     <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="label-text">
-                        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="100%" lengthAdjust="spacingAndGlyphs">NOW PLAYING:</text>
+                        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">NOW PLAYING:</text>
                     </svg>
                     <div class="marquee">
                         <div class="marquee-content">
                             <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="marquee-text">
-                                <text id="nowPlayingText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="100%" lengthAdjust="spacingAndGlyphs">Loading...</text>
+                                <text id="nowPlayingText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">Loading...</text>
                             </svg>
                         </div>
                     </div>
@@ -100,12 +91,12 @@
             <div class="next-up-banner" id="nextUpBanner">
                 <div class="track-info">
                     <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="label-text">
-                        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="80%" lengthAdjust="spacingAndGlyphs">NEXT UP:</text>
+                        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">NEXT UP:</text>
                     </svg>
                     <div class="marquee">
                         <div class="marquee-content">
                             <svg viewBox="0 0 400 80" preserveAspectRatio="none" class="marquee-text">
-                                <text id="nextUpText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="80%" lengthAdjust="spacingAndGlyphs">Loading...</text>
+                                <text id="nextUpText" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" font-family="Helvetica, Arial, sans-serif" textLength="90%" lengthAdjust="spacingAndGlyphs">Loading...</text>
                             </svg>
                         </div>
                     </div>
@@ -116,7 +107,7 @@
         <div class="calendar-section">
             <div id="toggleCalendar" class="toggle-header">
                 <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="header-text">
-                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="100%" lengthAdjust="spacingAndGlyphs">UPCOMING SHOWS ▼</text>
+                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="80%" lengthAdjust="spacingAndGlyphs">UPCOMING SHOWS ▼</text>
                 </svg>
                     </div>
             <div id="calendarContainer" class="calendar-container">
@@ -130,7 +121,7 @@
         <div class="past-shows">
             <div class="toggle-header" id="toggleHeader">
                 <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="header-text">
-                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="100%" lengthAdjust="spacingAndGlyphs">ARCHIVE ▼</text>
+                    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="black" textLength="80%" lengthAdjust="spacingAndGlyphs">ARCHIVE ▼</text>
                 </svg>
             </div>
             <div class="shows-container" id="showsContainer">
@@ -144,60 +135,34 @@
                 </iframe>
             </div>
         </div>
-    
-        <div class="chat-wrapper"  id="chatWrapper">
-<!-- Chat Wrapper für Desktop -->
-<div id="chat-wrapper"></div>
 
-<script>
-  const isMobile = window.innerWidth <= 768;
-
-  if (!isMobile) {
-    const script = document.createElement('script');
-    script.id = "cid0020000405286862654" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 350px;">{"handle":"hfgstation","arch":"js","styles":{"a":"00ff00","b":100,"c":"000000","d":"000000","k":"00ff00","l":"00ff00","m":"00ff00","p":"10","q":"00ff00","r":100,"t":0,"ab":false,"usricon":0,"allowpm":0,"fwtickm":1}
-                                                                                                                                             };
-
-    script.innerHTML = JSON.stringify(config);
-    document.getElementById('chat-wrapper').appendChild(script);
-  } else {
-    const link = document.createElement('a');
-    link.href = 'https://hfgstation.chatango.com/';
-    link.target = '_blank';
-    link.setAttribute('aria-label', 'Chat öffnen');
-    link.innerHTML = `
-      <div style="
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        z-index: 1000;
-        cursor: pointer;
-      ">
-        <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="chat-text" style="width: 150px; height: 40px;">
-          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="rgb(0, 255, 0)" textLength="80%" lengthAdjust="spacingAndGlyphs">CHAT</text>
-        </svg>
-      </div>
-    `;
-    document.body.appendChild(link);
-  }
-</script>
-
-        </div>
-            <div class="chat-trigger" id="chatTrigger">
-            <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="chat-text">
-                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="rgb(0, 255, 0)" textLength="80%" lengthAdjust="spacingAndGlyphs">CHAT</text>
+        
+        <div class="chat-trigger" id="chatTrigger">
+            <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="rgb(0, 255, 0)" textLength="100%" lengthAdjust="spacingAndGlyphs">CHAT</text>
             </svg>
         </div>
+
         <div class="chat-close" id="chatClose" style="display: none;">
-            <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="chat-text">
-                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="rgb(0, 255, 0)" textLength="80%" lengthAdjust="spacingAndGlyphs">CLOSE</text>
+            <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="rgb(0, 255, 0)" textLength="100%" lengthAdjust="spacingAndGlyphs">CLOSE</text>
             </svg>
         </div>
-    </div>
-</div>
+
+        <div class="chat-wrapper" id="chatWrapper">
+            <!-- Desktop chat embed -->
+            <script id="cid0020000405286862654" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 600px;height: 600px;">{"handle":"hfgstation","arch":"js","styles":{"a":"00ff00","b":100,"c":"000000","d":"000000","k":"00ff00","l":"00ff00","m":"00ff00","p":"10","q":"00ff00","r":100,"t":0,"ab":false,"usricon":0,"allowpm":0,"fwtickm":1}}</script>
+        </div>
+
+        <!-- Mobile chat button -->
+        <a href="https://hfgstation.chatango.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 400 100" preserveAspectRatio="none" class="mobile-chat-button">
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="rgb(0, 255, 0)" textLength="100%" lengthAdjust="spacingAndGlyphs">CHAT</text>
+            </svg>
+        </a>
     
     <footer class="footer">© HFG Off Station</footer>
-            
-
+    
     
     <script src="script.js"></script>
 </body>
