@@ -154,30 +154,8 @@
 
   if (!isMobile) {
     const script = document.createElement('script');
-    script.id = "cid0020000406351822956";
-    script.dataset.cfasync = "false";
-    script.async = true;
-    script.src = "//st.chatango.com/js/gz/emb.js";
-
-    const config = {
-      handle: "hfgstation",
-      arch: "js",
-      styles: {
-        a: "00ff00",
-        b: 100,
-        c: "000000",
-        d: "000000",
-        k: "00ff00",
-        l: "00ff00",
-        m: "00ff00",
-        p: "10",
-        q: "00ff00",
-        r: 800,   // height of the chat
-        w: 600,   // width of the chat
-        t: 0,
-        fwtickm: 1
-      }
-    };
+    script.id = "cid0020000405286862654" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 350px;">{"handle":"hfgstation","arch":"js","styles":{"a":"00ff00","b":100,"c":"000000","d":"000000","k":"00ff00","l":"00ff00","m":"00ff00","p":"10","q":"00ff00","r":100,"t":0,"ab":false,"usricon":0,"allowpm":0,"fwtickm":1}
+                                                                                                                                             };
 
     script.innerHTML = JSON.stringify(config);
     document.getElementById('chat-wrapper').appendChild(script);
