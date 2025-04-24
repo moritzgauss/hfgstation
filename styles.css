@@ -80,11 +80,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 50vh;
     position: relative;
     width: 220px;
     margin: 0 auto;
-    padding-bottom: 10px;
 }
 
 #airtime-player-container {
@@ -153,7 +152,6 @@ body {
     font-size: 14px;
     font-family: Helvetica, Arial, sans-serif;
     text-align: center;
-    background: #fff;
     position: relative;
     box-sizing: border-box;
     padding-bottom: 100px;
@@ -170,16 +168,9 @@ body::-webkit-scrollbar-thumb {
 .chat-wrapper {
     display: block;
     position: fixed;
-    right: 70px;
-    bottom: 90px;
+    bottom: 100px;
+    right: 80px;
     z-index: 1000;
-}
-
-.chat-wrapper-mobile {
-    display: none;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
 }
 
 .chat-trigger, .chat-close {
@@ -187,13 +178,13 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 200px;
-    height: 60px;
+    width: 400px;
+    height: 100px;
     cursor: pointer;
     z-index: 1001;
 }
 
- .chat-trigger-mobile {
+.mobile-chat-button {
     display: none;
 }
 
@@ -242,11 +233,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .clock-section {
+    width: 400px;
     height: 60px;
-margin-top: 40px;
-margin-right: auto;
-margin-bottom: 20px;
-margin-left: auto;
+    margin: 40px auto;
 }
 
 .clock-text {
@@ -433,7 +422,7 @@ margin-left: auto;
     z-index: 1000;
     color: white;
     width: auto;
-    max-width: 60vw;
+    max-width: 90%;
     cursor: pointer;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
@@ -505,34 +494,28 @@ margin-left: auto;
     .marquee-text text {
         transform: scaleX(0.8); 
     }
-    
-   .chat-wrapper {
-        display: none;
+    .chat-wrapper {
+        display: none !important;
     }
-
-    /*.chat-wrapper-mobile {
-        display: block;
-    }*/
 
     .chat-trigger, .chat-close {
         display: none !important;
     }
 
-    .chat-link-mobile {
-    display: block;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 140px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 1001;
+    .mobile-chat-button {
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 140px;
+        height: 60px;
+        cursor: pointer;
+        z-index: 1001;
     }
-    
 
     .track-info-container {
         padding: 10px;
-        max-width: 80%;
+        max-width: 95%;
     }
 
 
@@ -557,11 +540,12 @@ margin-left: auto;
 
 
     .clock-section {
+        width: 200px;
         height: 50px;
     }
 
     .main-content {
-        padding-bottom: 100px;
+        padding-bottom: 100px; /* Increased padding for mobile */
     }
 
 
@@ -590,6 +574,31 @@ margin-left: auto;
     .shows-container.show {
         padding: 10px;
         max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .track-info-container {
+        padding: 5px;
+        max-width: 100%;
+    }
+
+    .main-content {
+        padding-bottom: 120px; /* Even more padding for smaller screens */
+    }
+
+    .notification-text {
+        font-size: 14px;
+    }
+
+    .calendar-content {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .calendar-item {
+        max-width: 280px;
     }
 }
 
