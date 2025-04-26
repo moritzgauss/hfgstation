@@ -80,10 +80,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: 50vh;
     position: relative;
     width: 220px;
-    margin: 10 auto;
+    margin: 0 auto;
 }
 
 #airtime-player-container {
