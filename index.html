@@ -6,7 +6,6 @@
     <title>HFG Off Station</title>
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
             background: #000;
@@ -14,33 +13,39 @@
             height: 100vh;
             overflow: hidden;
         }
+
         body {
             display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            min-width: 100vw;
         }
+
         .overlay-gif {
             width: 100vw;
-            height: 90vh;
-            object-fit: 100%;
+            height: 100vh;
+            object-fit: cover;
             display: block;
             background: #000;
+        }
+
+        @media (max-width: 768px) {
+            .overlay-gif {
+                height: 90vh;
+                margin-bottom: 10vh;
+            }
         }
     </style>
 </head>
 <body>
     <img src="https://raw.githubusercontent.com/piquedeux/hfgstation/refs/heads/main/overlay.GIF" alt="Overlay" class="overlay-gif">
     <audio id="boing-audio" src="https://github.com/piquedeux/hfgstation/raw/refs/heads/main/boingeffect.mp3" autoplay loop></audio>
+
     <script>
-      // For browsers that block autoplay, try to resume on user interaction
       window.addEventListener('DOMContentLoaded', function() {
         const audio = document.getElementById('boing-audio');
         audio.volume = 1.0;
-        // Try to play immediately
         audio.play().catch(() => {
-          // If blocked, play on first user interaction
           const resume = () => {
             audio.play();
             window.removeEventListener('click', resume);
@@ -51,7 +56,5 @@
         });
       });
     </script>
-
 </body>
 </html>
-
