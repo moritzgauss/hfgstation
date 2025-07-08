@@ -111,23 +111,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         
     });
 
-    const chatTrigger = document.getElementById('chatTrigger');
-    const chatClose = document.getElementById('chatClose');
-    const chatWrapper = document.getElementById('chatWrapper');
-
-    chatWrapper.style.display = 'none';
-    
-    chatTrigger.addEventListener('click', function() {
-        chatWrapper.style.display = 'block';
-        chatTrigger.style.display = 'none';
-        chatClose.style.display = 'block';
-    });
-
-    chatClose.addEventListener('click', function() {
-        chatWrapper.style.display = 'none';
-        chatTrigger.style.display = 'block';
-        chatClose.style.display = 'none';
-    });
+    // Mobile Chat Button (öffnet Chat im neuen Fenster)
+    const mobileChatButton = document.getElementById('mobileChatButton');
+    if (mobileChatButton) {
+        mobileChatButton.addEventListener('click', () => {
+            window.open('https://chatango.com/box?hfgstation', '_blank');
+        });
+    }
 
     const toggleCalendar = document.getElementById('toggleCalendar');
     const calendarContainer = document.getElementById('calendarContainer');
