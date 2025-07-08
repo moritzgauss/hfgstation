@@ -216,6 +216,19 @@ footer {
   text-decoration: underline;
 }
 
+details {
+  -webkit-appearance: none; /* For Safari */
+  appearance: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
