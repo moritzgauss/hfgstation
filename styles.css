@@ -20,7 +20,7 @@ body {
     width: 100%;
     position: relative;
     padding-bottom: 60px;
-    padding-top: 160px;
+    padding-top: 100px;
 }
 
 /* Live Banner and Marquee */
@@ -291,8 +291,8 @@ body::-webkit-scrollbar-thumb {
 
 .clock-section {
     width: 400px;
-    height: 60px;
-    margin: 40px auto;
+    height: 40px;
+    margin: 20px auto;
 }
 
 .clock-text {
@@ -320,7 +320,8 @@ body::-webkit-scrollbar-thumb {
 .title-section .title {
     width: 100% !important;
     margin: 0 !important;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     box-sizing: border-box;
 }
 
@@ -589,7 +590,6 @@ body::-webkit-scrollbar-thumb {
     .title-section .title {
         width: 100% !important;
         margin: 0 !important;
-        padding: 10px;
         box-sizing: border-box;
     }
 
@@ -602,7 +602,7 @@ body::-webkit-scrollbar-thumb {
 
     .clock-section {
         width: 200px;
-        height: 50px;
+        height: 20px;
     }
 
 
