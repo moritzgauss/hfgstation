@@ -292,7 +292,7 @@ body::-webkit-scrollbar-thumb {
 .clock-section {
     width: 400px;
     height: 60px;
-    margin: 20px auto;
+    margin: 40px auto;
 }
 
 .clock-text {
@@ -314,6 +314,13 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     overflow: hidden;
     padding: 0;
+    box-sizing: border-box;
+}
+
+.title-section .title {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -694,9 +701,5 @@ body::-webkit-scrollbar-thumb {
     .calendar-item .show-front,
     .calendar-item .show-back {
         background: #000;
-    }
-    .offline-notification {
-        background: rgba(255, 255, 255, 0.8);
-        color: black;
     }
 }
