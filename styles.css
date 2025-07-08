@@ -20,7 +20,7 @@ body {
     width: 100%;
     position: relative;
     padding-bottom: 60px;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 /* Live Banner and Marquee */
@@ -474,6 +474,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     left: 50%;
     top: 0;
+    display: none;
     transform: translate(-50%, -120%);
     background: rgba(53, 53, 53, 0.9);
     backdrop-filter: blur(10px);
