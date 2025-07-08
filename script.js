@@ -10,23 +10,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch('https://hfgradio.airtime.pro/api/live-info');
             const data = await response.json();
-            
+
             // Check if there's a current show playing
             if (data.currentShow && data.currentShow.length > 0) {
                 const currentShow = data.currentShow[0];
                 const now = new Date();
                 const startTime = new Date(currentShow.starts);
                 const endTime = new Date(currentShow.ends);
-                
+
                 // If we're between start and end time of a show
                 if (now >= startTime && now <= endTime) {
                     liveBanner.classList.add('show');
                     offlineNotification.classList.remove('show');
-                    const contents = document.querySelectorAll('.marquee-content');
-                    contents.forEach(content => {
-                        content.style.animation = 'none';
-                        content.offsetHeight; // Trigger reflow
-                        content.style.animation = 'marquee 15s linear infinite';
+                    // Enable marquee animation only when live
+                    const marquees = document.querySelectorAll('.marquee-content');
+                    marquees.forEach(content => {
+                        content.style.animation = '';
                     });
                     isPlaying = true;
                 } else {
@@ -44,8 +43,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     function handleOfflineState() {
         liveBanner.classList.remove('show');
         offlineNotification.classList.add('show');
-        const contents = document.querySelectorAll('.marquee-content');
-        contents.forEach(content => {
+        // Disable marquee animation when offline
+        const marquees = document.querySelectorAll('.marquee-content');
+        marquees.forEach(content => {
             content.style.animation = 'none';
         });
         isPlaying = false;
