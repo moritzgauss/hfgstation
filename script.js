@@ -5,24 +5,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     let isPlaying = false;
 
-    // Function to check if there's a live show and update banner
     async function checkLiveShow() {
         try {
             const response = await fetch('https://hfgradio.airtime.pro/api/live-info');
             const data = await response.json();
 
-            // Check if there's a current show playing
             if (data.currentShow && data.currentShow.length > 0) {
                 const currentShow = data.currentShow[0];
                 const now = new Date();
                 const startTime = new Date(currentShow.starts);
                 const endTime = new Date(currentShow.ends);
 
-                // If we're between start and end time of a show
                 if (now >= startTime && now <= endTime) {
                     liveBanner.classList.add('show');
                     offlineNotification.classList.remove('show');
-                    // Enable marquee animation only when live
                     const marquees = document.querySelectorAll('.marquee-content');
                     marquees.forEach(content => {
                         content.style.animation = '';
@@ -43,7 +39,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     function handleOfflineState() {
         liveBanner.classList.remove('show');
         offlineNotification.classList.add('show');
-        // Disable marquee animation when offline
         const marquees = document.querySelectorAll('.marquee-content');
         marquees.forEach(content => {
             content.style.animation = 'none';
@@ -51,7 +46,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         isPlaying = false;
     }
 
-    // Add click handler for notification
     offlineNotification.addEventListener('click', () => {
         offlineNotification.classList.add('hide');
         offlineNotification.classList.remove('show');
@@ -62,17 +56,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         showsContainer.classList.add('show');
         showsHeader.querySelector('text').textContent = 'ARCHIVE ▲';
         
-        // Add small delay before scrolling to ensure animation completes
         setTimeout(() => {
             showsSection.scrollIntoView({ behavior: 'smooth' });
         }, 100);
     });
 
-    // Check for live show every 30 seconds
     setInterval(checkLiveShow, 30000);
     checkLiveShow(); // Initial check
 
-    // Clock functionality
     function updateClock() {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
@@ -84,7 +75,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Track info fetching
     async function updateTrackInfo() {
         try {
             const response = await fetch('https://hfgradio.airtime.pro/api/live-info');
@@ -104,11 +94,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // Update track info every 30 seconds
     setInterval(updateTrackInfo, 30000);
     updateTrackInfo();
 
-    // Shows Container Toggle Logic
     const toggleHeader = document.getElementById('toggleHeader');
     const showsContainer = document.getElementById('showsContainer');
     
@@ -121,7 +109,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         
     });
 
-    // Chat functionality
     const chatTrigger = document.getElementById('chatTrigger');
     const chatClose = document.getElementById('chatClose');
     const chatWrapper = document.getElementById('chatWrapper');
@@ -140,7 +127,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         chatClose.style.display = 'none';
     });
 
-    // Calendar Toggle Logic
     const toggleCalendar = document.getElementById('toggleCalendar');
     const calendarContainer = document.getElementById('calendarContainer');
 
@@ -151,7 +137,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             ? 'UPCOMING SHOWS ▲' 
             : 'UPCOMING SHOWS ▼';
         
-        // Reset all flipped cards when closing the section
         if (!calendarContainer.classList.contains('show')) {
             const flippedCards = calendarContainer.querySelectorAll('.show-inner');
             flippedCards.forEach(card => {
@@ -160,7 +145,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // Function to fetch and display show schedules
     async function updateShowSchedules() {
         try {
             const response = await fetch('https://hfgradio.airtime.pro/api/week-info');
@@ -173,7 +157,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             let showsFound = 0;
 
-            // Check if data exists and is properly structured
             if (data && typeof data === 'object') {
                 Object.entries(data).forEach(([dayName, shows]) => {
                     // Check if shows is an array before using forEach
@@ -255,7 +238,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-        // Update show schedules every 5 minutes
         setInterval(updateShowSchedules, 300000);
         updateShowSchedules();
     });
