@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const liveBanner = document.getElementById('liveBanner');
     const airtimeContainer = document.getElementById('airtime-player-container');
     const offlineNotification = document.getElementById('offlineNotification');
-    
+     
+    offlineNotification.style.display = 'none';
+
     let isPlaying = false;
 
     async function checkLiveShow() {
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     setInterval(checkLiveShow, 30000);
-    checkLiveShow(); // Initial check
+    checkLiveShow();
 
     function updateClock() {
         const now = new Date();
