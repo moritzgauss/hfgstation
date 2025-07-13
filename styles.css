@@ -169,66 +169,54 @@ body {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 1.5em;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 20px;
-  font-size: 14px;
-  font-family: Helvetica, Arial, sans-serif;
-  text-align: center;
-  position: relative;
-  box-sizing: border-box;
-  background: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-size: 0.8rem;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    background: none;
 }
 
 .footer a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.footer2 {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  padding: 20px;
-  font-family: Helvetica, Arial, sans-serif;
-  text-align: right;
-  position: relative;
-  box-sizing: border-box;
-  background: none;
+    color: inherit;
+    text-decoration: underline;
 }
 
 .footer-details {
-  margin: 0;
-  text-align: right;
+    margin: 0;
+    text-align: right;
 }
 
 .footer-details[open] .footer-summary {
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 .footer-summary {
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: underline;
-  margin-left: 0;
-  margin-right: 0;
-  font-size: 0.6rem;
-  outline: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: underline;
+    margin-left: 0;
+    margin-right: 0;
+    outline: none;
 }
 
 .footer-info {
-  font-size: 0.6rem;
-  color: inherit;
-  margin-top: 10px;
+    color: inherit;
+    margin-top: 10px;
 }
 
 .footer-info a {
-  color: inherit;
-  text-decoration: underline;
+    color: inherit;
+    text-decoration: underline;
 }
 
 details {
@@ -325,7 +313,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 26px;
     textLength: 94%;
     lengthAdjust: spacingAndGlyphs;
-    fill: black;
+    fill: white;
 }
 
 .show-image {
@@ -623,7 +611,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .live-banner {
-    height: 40px;
+    height: 60px;
     }
     
     .marquee-text text {
