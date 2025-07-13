@@ -269,7 +269,7 @@ body::-webkit-scrollbar-thumb {
 
 .track-info-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 940px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
