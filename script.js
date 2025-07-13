@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                     currentShowTitle.textContent = currentShow.name || 'Untitled Show';
 
+                    // Fallback zur Standardgrafik, falls kein Bild gefunden
                     currentShowImage.src = `https://hfgradio.airtime.pro/api/show-logo?id=${currentShow.id}`;
                     currentShowImage.onerror = () => {
                         currentShowImage.src = '/icon.png';
@@ -99,8 +100,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             nowPlayingText.textContent = currentTrack || 'No track information';
             nextUpText.textContent = nextTrack || 'No upcoming track information';
-
-            updateTrackMarquees(); // Apply marquee animation
         } catch (error) {
             console.error('Failed to fetch track info:', error);
         }
@@ -108,26 +107,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     setInterval(updateTrackInfo, 30000);
     updateTrackInfo();
-
-    function updateTrackMarquees() {
-        document.querySelectorAll('.track-marquee').forEach(marquee => {
-            const content = marquee.querySelector('.track-marquee-content');
-            if (!content) return;
-
-            content.style.animation = 'none';
-            void content.offsetWidth; // force reflow
-
-            const containerWidth = marquee.offsetWidth;
-            const contentWidth = content.scrollWidth;
-
-            if (contentWidth <= containerWidth) return;
-
-            const speed = 60; // pixels per second
-            const duration = contentWidth / speed;
-
-            content.style.animation = `track-scroll ${duration}s linear infinite`;
-        });
-    }
 
     toggleHeader.addEventListener('click', () => {
         showsContainer.classList.toggle('show');
