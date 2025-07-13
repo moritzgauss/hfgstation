@@ -291,6 +291,29 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
+.current-show-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.show-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.show-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.show-title-svg {
+    height: 60px;
+    width: 300px;
+}
 
 .now-playing-banner, .next-up-banner {
     width: 100%;
