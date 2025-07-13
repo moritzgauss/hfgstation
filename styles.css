@@ -1,4 +1,3 @@
-/* Base styles and layout */
 body {
     margin: 0;
     background: #fff;
@@ -20,16 +19,16 @@ body {
     width: 100%;
     position: relative;
     padding-bottom: 60px;
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
-/* Live Banner and Marquee */
 .live-banner {
     position: fixed;
     top: 0;
     height: 80px;
+    background: white;
     overflow: hidden;
-    display: none; /* <-- fix here */
+    display: none; 
     width: 100vw;
     left: 50%;
     transform: translateX(-50%);
@@ -276,19 +275,20 @@ body::-webkit-scrollbar-thumb {
     overflow: hidden;
 }
 
-.chat-trigger, .chat-close {
-    display: block;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 400px;
-    height: 100px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
 .mobile-chat-button {
     display: none;
+}
+
+.track-info-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 .current-show-banner {
@@ -305,14 +305,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .show-image {
-    width: 60px;
-    height: 60px;
+    width: 28px;
+    height: 28px;
     object-fit: cover;
-}
-
-.show-title-svg {
-    height: 60px;
-    width: 300px;
 }
 
 .now-playing-banner, .next-up-banner {
@@ -320,18 +315,6 @@ body::-webkit-scrollbar-thumb {
     height: 60px;
     overflow: hidden;
     box-sizing: border-box;
-}
-
-.track-info-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
 }
 
 .now-playing-banner, .next-up-banner {
