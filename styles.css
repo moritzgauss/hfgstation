@@ -19,7 +19,7 @@ body {
     width: 100%;
     position: relative;
     padding-bottom: 60px;
-    padding-top: 40px;
+    padding-top: 60px;
 }
 
 .live-banner {
@@ -617,8 +617,8 @@ body::-webkit-scrollbar-thumb {
     height: 60px;
 }
 
-    .marquee-text {
-        width: 260px;
+.live-banner {
+    height: 40px;
     }
     
     .marquee-text text {
@@ -744,6 +744,11 @@ body::-webkit-scrollbar-thumb {
         background: #000;
         color: #fff;
     }
+    
+    .live-banner {
+    background: black;
+    }
+    
     .clock-text {
         stroke: #fff !important;
     }
