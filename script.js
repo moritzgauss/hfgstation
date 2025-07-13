@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const liveBanner = document.getElementById('liveBanner');
     const airtimeContainer = document.getElementById('airtime-player-container');
     const offlineNotification = document.getElementById('offlineNotification');
-     
-    offlineNotification.style.display = 'none';
 
+    offlineNotification.style.display = 'none';
     let isPlaying = false;
 
     async function checkLiveShow() {
@@ -21,10 +20,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (now >= startTime && now <= endTime) {
                     liveBanner.classList.add('show');
                     offlineNotification.classList.remove('show');
+
                     const marquees = document.querySelectorAll('.marquee-content');
                     marquees.forEach(content => {
                         content.style.animation = '';
                     });
+
+                    const currentShowTitle = document.getElementById('currentShowTitle');
+                    const currentShowImage = document.getElementById('currentShowImage');
+
+                    currentShowTitle.textContent = currentShow.name || 'Untitled Show';
+
+                    currentShowImage.src = `/api/show-logo?id=${currentShow.id}`;
+                    currentShowImage.onerror = () => {
+                        currentShowImage.src = '/icon.png';
+                    };
+
                     isPlaying = true;
                 } else {
                     handleOfflineState();
@@ -41,23 +52,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     function handleOfflineState() {
         liveBanner.classList.remove('show');
         offlineNotification.classList.add('show');
+
         const marquees = document.querySelectorAll('.marquee-content');
         marquees.forEach(content => {
             content.style.animation = 'none';
         });
+
         isPlaying = false;
     }
 
     offlineNotification.addEventListener('click', () => {
         offlineNotification.classList.add('hide');
         offlineNotification.classList.remove('show');
-        
+
         const showsSection = document.getElementById('showsContainer');
         const showsHeader = document.getElementById('toggleHeader');
-        
+
         showsContainer.classList.add('show');
         showsHeader.querySelector('text').textContent = 'ARCHIVE ▲';
-        
+
         setTimeout(() => {
             showsSection.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -81,12 +94,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch('https://hfgradio.airtime.pro/api/live-info');
             const data = await response.json();
-            
+
             if (data.current) {
                 const currentTrack = `${data.current.name || ''} ${data.current.title || ''}`.trim();
                 nowPlayingText.textContent = currentTrack || 'No track information';
             }
-            
+
             if (data.next) {
                 const nextTrack = `${data.next.name || ''} ${data.next.title || ''}`.trim();
                 nextUpText.textContent = nextTrack || 'No upcoming track information';
@@ -101,17 +114,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const toggleHeader = document.getElementById('toggleHeader');
     const showsContainer = document.getElementById('showsContainer');
-    
+
     toggleHeader.addEventListener('click', () => {
         showsContainer.classList.toggle('show');
         const headerText = toggleHeader.querySelector('text');
-        headerText.textContent = showsContainer.classList.contains('show') 
-            ? 'ARCHIVE ▲' 
+        headerText.textContent = showsContainer.classList.contains('show')
+            ? 'ARCHIVE ▲'
             : 'ARCHIVE ▼';
-        
     });
 
-    // Mobile Chat Button (öffnet Chat im neuen Fenster)
     const mobileChatButton = document.getElementById('mobileChatButton');
     if (mobileChatButton) {
         mobileChatButton.addEventListener('click', () => {
@@ -125,10 +136,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     toggleCalendar.addEventListener('click', () => {
         calendarContainer.classList.toggle('show');
         const headerText = toggleCalendar.querySelector('text');
-        headerText.textContent = calendarContainer.classList.contains('show') 
-            ? 'UPCOMING SHOWS ▲' 
+        headerText.textContent = calendarContainer.classList.contains('show')
+            ? 'UPCOMING SHOWS ▲'
             : 'UPCOMING SHOWS ▼';
-        
+
         if (!calendarContainer.classList.contains('show')) {
             const flippedCards = calendarContainer.querySelectorAll('.show-inner');
             flippedCards.forEach(card => {
@@ -141,31 +152,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch('https://hfgradio.airtime.pro/api/week-info');
             const data = await response.json();
-            
+
             const calendarContent = document.getElementById('calendarContent');
             calendarContent.innerHTML = '';
-            
+
             const now = new Date();
             const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             let showsFound = 0;
 
             if (data && typeof data === 'object') {
                 Object.entries(data).forEach(([dayName, shows]) => {
-                    // Check if shows is an array before using forEach
                     if (Array.isArray(shows)) {
                         shows.forEach(show => {
                             const startTime = new Date(show.starts);
                             if (startTime > now) {
                                 const showElement = document.createElement('div');
                                 showElement.className = 'calendar-item';
-                                
-                                // Get the day index for display
+
                                 const showDate = new Date(show.starts);
                                 const showDay = showDate.getDay();
-                                
-                                // Extract Instagram handle from description
+
                                 const instagramHandle = show.description?.match(/@([a-zA-Z0-9._]+)/)?.[1];
-                                
+
                                 showElement.innerHTML = `
                                     <div class="show-inner">
                                         <div class="show-front">
@@ -200,19 +208,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 if (instagramHandle) {
                                     const showInner = showElement.querySelector('.show-inner');
                                     const backButton = showElement.querySelector('.back-button');
-                                    
+
                                     showElement.addEventListener('click', (e) => {
                                         if (!e.target.classList.contains('back-button')) {
                                             showInner.style.transform = 'rotateY(180deg)';
                                         }
                                     });
-                                    
+
                                     backButton.addEventListener('click', (e) => {
                                         e.stopPropagation();
                                         showInner.style.transform = 'rotateY(0)';
                                     });
                                 }
-                                
+
                                 calendarContent.appendChild(showElement);
                                 showsFound++;
                             }
@@ -220,7 +228,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 });
             }
-            
+
             if (showsFound === 0) {
                 calendarContent.innerHTML = '<p>No upcoming shows scheduled</p>';
             }
@@ -230,6 +238,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-        setInterval(updateShowSchedules, 300000);
-        updateShowSchedules();
-    });
+    setInterval(updateShowSchedules, 300000);
+    updateShowSchedules();
+});
