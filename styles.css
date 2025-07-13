@@ -83,8 +83,7 @@ body {
     height: 50vh;
     position: relative;
     width: 220px;
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin: 20 auto;
 }
 
 #airtime-player-container {
@@ -606,7 +605,7 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 768px) {
 
 .player-container {
-    margin-bottom: 0;
+    margin: 0 auto;
 }
 
     .toggle-header {
