@@ -326,6 +326,27 @@ body::-webkit-scrollbar-thumb {
     box-sizing: border-box;
 }
 
+.track-marquee {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.track-marquee-content {
+    display: flex;
+    gap: 40px;
+    white-space: nowrap;
+    animation: none;
+}
+
+@keyframes track-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
 .track-info {
     display: flex;
     align-items: center;
