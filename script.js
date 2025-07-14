@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             const currentTrack = `${data?.current?.name || ''} ${data?.current?.title || ''}`.trim();
             const nextTrack = `${data?.next?.name || ''} ${data?.next?.title || ''}`.trim();
 
-            nowPlayingText.textContent = currentTrack || 'No track information';
-            nextUpText.textContent = nextTrack || 'No upcoming track information';
+            nowPlayingText.textContent = currentTrack || 'Not Live atm';
+            nextUpText.textContent = nextTrack || 'Not Live atm';
         } catch (error) {
             console.error('Failed to fetch track info:', error);
         }
