@@ -740,7 +740,7 @@ body::-webkit-scrollbar-thumb {
     }
     
     .clock-text {
-        stroke: #fff !important;
+        fill: #fff !important;
     }
     .title-text {
         fill: #fff !important;
